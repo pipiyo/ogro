@@ -1,0 +1,24 @@
+{
+  "name": "ogro",
+  "description": "grande ogro",
+  "main": "",
+  "authors": [
+    "pipiyo <fe.cavieres@gmail.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+    "dependencies": {
+      "jquery": "~2.1.4",
+      "bootstrap": "~3.3.5",
+      "angular": "1.4.7"
+  }
+}
