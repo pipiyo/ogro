@@ -12,7 +12,28 @@ block content
         p NO SOS EL OGRO
       p.
         lksdfkahskhjdg
-  .container
+  .container(ng-app="todoApp")
     input(type="text", ng-model="MiNombre")
     hr
     {{MiNombre}}
+    div(ng-controller="TodoListController as todoList")
+      span {{todoList.remaining()}} of {{todoList.todos.length}} remaining
+      a(href="" ng-click="todoList.archive()") archive
+      ul.unstyled
+        li(ng-repeat="todo in todoList.todos")
+          input(type="checkbox", ng-model="todo.done")
+          span.done-{{todo.done}} {{todo.text}}
+      form(ng-submit="todoList.addTodo()")
+        input(type="text", ng-model="todoList.todoText", size="30", placeholder="add new todo here")
+        input.btn-primary(type="submit", value="add")
+
+  div(ng-app="app")  
+    tabs
+      pane(title="Localization")
+        span Date: {{ '2012-04-01' | date:'fullDate' }}
+        span Currency: {{ 123456 | currency }}
+        span Number: {{ 98765.4321 | number }}
+      pane(title="Pluralization")
+        div(ng-controller="BeerCounter")
+          div(ng-repeat="beerCount in beers")
+            ng-pluralize(count="beerCount", when="beerForms")
